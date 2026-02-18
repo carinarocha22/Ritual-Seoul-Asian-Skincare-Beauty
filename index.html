@@ -5,60 +5,47 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ritual Seoul – Asian Skincare & Beauty</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
 <style>
 
-/* RESET */
-* {
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
-body {
-font-family: 'Poppins', sans-serif;
-background:#ffffff;
+html{scroll-behavior:smooth;}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#fff;
 color:#222;
 line-height:1.6;
 }
 
-h1,h2,h3 {
-font-family:'Playfair Display', serif;
-}
+h1,h2,h3{font-family:'Playfair Display',serif;}
 
-/* HEADER */
-header {
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
 padding:20px 8%;
-background:white;
+background:#fff;
 box-shadow:0 2px 10px rgba(0,0,0,0.05);
 position:sticky;
 top:0;
+z-index:1000;
 }
 
-.logo {
-font-size:22px;
-font-weight:600;
-color:#c75c8a;
-}
+.logo{font-weight:600;color:#c75c8a;font-size:20px;}
 
-nav a {
+nav a{
 margin:0 15px;
 text-decoration:none;
 color:#222;
 font-size:14px;
-transition:0.3s;
 }
 
-nav a:hover {
-color:#c75c8a;
-}
+nav a:hover{color:#c75c8a;}
 
-/* HERO */
-.hero {
+.hero{
 height:70vh;
 display:flex;
 align-items:center;
@@ -66,78 +53,50 @@ padding:0 8%;
 background:linear-gradient(to right,#f8d7e3,#ffffff);
 }
 
-.hero-text h1 {
-font-size:42px;
-margin-bottom:20px;
-}
+.hero h1{font-size:40px;margin-bottom:20px;}
 
-.hero-text p {
-margin-bottom:25px;
-color:#555;
-}
-
-.btn {
+.btn{
+display:inline-block;
 padding:12px 25px;
 background:#c75c8a;
-color:white;
+color:#fff;
 text-decoration:none;
 border-radius:30px;
-transition:0.3s;
+margin-top:20px;
 }
 
-.btn:hover {
-background:#a8446f;
-}
+section{padding:70px 8%;}
 
-/* SECTIONS */
-section {
-padding:70px 8%;
-}
+.section-title{text-align:center;margin-bottom:40px;}
 
-.section-title {
-text-align:center;
-margin-bottom:40px;
-font-size:28px;
-}
-
-/* GRID PRODUTOS */
-.products {
+.products{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
 gap:30px;
 }
 
-.product {
-background:white;
+.product{
+background:#fff;
 padding:20px;
 border-radius:15px;
 box-shadow:0 5px 15px rgba(0,0,0,0.05);
 transition:0.3s;
+cursor:pointer;
 }
 
-.product:hover {
-transform:translateY(-5px);
-}
+.product:hover{transform:translateY(-5px);}
 
-.product img {
+.product img{
 width:100%;
 border-radius:10px;
 margin-bottom:15px;
 }
 
-.price {
-color:#c75c8a;
-font-weight:600;
-margin-top:10px;
-}
+.price{color:#c75c8a;font-weight:600;margin-top:10px;}
 
-/* SOBRE */
-.about {
-background:#f9f9f9;
-}
+.about{background:#f9f9f9;}
 
-/* CONTACTO */
-.contact form {
+.contact form{
 max-width:500px;
 margin:auto;
 display:flex;
@@ -145,37 +104,38 @@ flex-direction:column;
 gap:15px;
 }
 
-.contact input, .contact textarea {
+input,textarea{
 padding:10px;
 border:1px solid #ddd;
 border-radius:8px;
 }
 
-.contact button {
+button{
 padding:12px;
 border:none;
 background:#c75c8a;
-color:white;
+color:#fff;
 border-radius:25px;
 cursor:pointer;
 }
 
-/* FOOTER */
-footer {
+footer{
 background:#222;
-color:white;
+color:#fff;
 text-align:center;
 padding:30px;
 margin-top:40px;
 }
 
-@media(max-width:768px){
-.hero-text h1{
-font-size:28px;
-}
-nav{
-display:none;
-}
+.voice-btn{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#c75c8a;
+color:#fff;
+padding:15px;
+border-radius:50%;
+cursor:pointer;
 }
 
 </style>
@@ -186,80 +146,104 @@ display:none;
 <header>
 <div class="logo">Ritual Seoul</div>
 <nav>
-<a href="#">Início</a>
-<a href="#">Produtos</a>
-<a href="#">Sobre</a>
-<a href="#">Contacto</a>
+<a href="#inicio">Início</a>
+<a href="#produtos">Produtos</a>
+<a href="#sobre">Sobre</a>
+<a href="#contacto">Contacto</a>
 </nav>
 </header>
 
-<section class="hero">
-<div class="hero-text">
+<section class="hero" id="inicio">
+<div>
 <h1>Beleza Asiática. Ritual. Inovação.</h1>
-<p>Descubra os melhores produtos de skincare e maquilhagem coreana e japonesa.</p>
-<a href="#" class="btn">Explorar Coleção</a>
+<p>Descubra produtos premium da Coreia e Japão.</p>
+<a href="#produtos" class="btn">Explorar Produtos</a>
 </div>
 </section>
 
-<section>
-<h2 class="section-title">Produtos em Destaque</h2>
+<section id="produtos">
+<h2 class="section-title">Produtos</h2>
 
 <div class="products">
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc">
-<h3>Water Sleeping Mask</h3>
-<p>Máscara hidratante noturna para revitalizar a pele.</p>
+<div class="product" onclick="alert('Produto adicionado ao carrinho (simulação)')">
+<img src="https://images.unsplash.com/photo-1629198688000-71f23e745b6e" alt="Sérum facial">
+<h3>Glow Serum</h3>
+<p>Sérum iluminador facial.</p>
+<div class="price">21,90€</div>
+</div>
+
+<div class="product" onclick="alert('Produto adicionado ao carrinho (simulação)')">
+<img src="https://images.unsplash.com/photo-1580281657527-47a9a8c8c8cb" alt="Creme hidratante">
+<h3>Hydrating Cream</h3>
+<p>Creme hidratante profundo.</p>
 <div class="price">29,90€</div>
 </div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348">
-<h3>Snail Repair Essence</h3>
-<p>Essência regeneradora com mucina de caracol.</p>
-<div class="price">24,90€</div>
-</div>
-
-<div class="product">
-<img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd">
+<div class="product" onclick="alert('Produto adicionado ao carrinho (simulação)')">
+<img src="https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd" alt="Lip tint">
 <h3>Lip Tint Velvet</h3>
-<p>Batom líquido de longa duração acabamento matte.</p>
+<p>Batom líquido matte.</p>
 <div class="price">14,90€</div>
 </div>
 
-<div class="product">
-<img src="https://images.unsplash.com/photo-1585238342024-78d387f4a707">
-<h3>Green Tea Cleanser</h3>
-<p>Gel de limpeza suave com extrato de chá verde.</p>
-<div class="price">17,90€</div>
+<div class="product" onclick="alert('Produto adicionado ao carrinho (simulação)')">
+<img src="https://images.unsplash.com/photo-1608248597279-f99d160bfcbc" alt="Máscara facial">
+<h3>Sleeping Mask</h3>
+<p>Máscara noturna revitalizante.</p>
+<div class="price">27,90€</div>
+</div>
+
+<div class="product" onclick="alert('Produto adicionado ao carrinho (simulação)')">
+<img src="https://images.unsplash.com/photo-1595433562696-79f8c95e1c5f" alt="Champô">
+<h3>Repair Shampoo</h3>
+<p>Champô nutritivo.</p>
+<div class="price">18,90€</div>
+</div>
+
+<div class="product" onclick="alert('Produto adicionado ao carrinho (simulação)')">
+<img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348" alt="Essência facial">
+<h3>Snail Essence</h3>
+<p>Essência regeneradora.</p>
+<div class="price">24,90€</div>
 </div>
 
 </div>
 </section>
 
-<section class="about">
-<h2 class="section-title">Sobre a Marca</h2>
+<section class="about" id="sobre">
+<h2 class="section-title">Sobre Nós</h2>
 <p style="max-width:800px;margin:auto;text-align:center;">
-Ritual Seoul nasce da paixão pela inovação da cosmética asiática. Trabalhamos com marcas reconhecidas da Coreia do Sul e Japão, oferecendo produtos originais, seguros e eficazes para todos os tipos de pele.
+Ritual Seoul é uma loja online dedicada à cosmética asiática premium. Trabalhamos com marcas reconhecidas da Coreia do Sul e Japão, garantindo autenticidade e qualidade.
 </p>
 </section>
 
-<section class="contact">
+<section class="contact" id="contacto">
 <h2 class="section-title">Contacto</h2>
 
-<form>
-<input type="text" placeholder="Nome">
-<input type="email" placeholder="Email">
-<textarea rows="4" placeholder="Mensagem"></textarea>
-<button type="submit">Enviar Mensagem</button>
+<form onsubmit="event.preventDefault(); alert('Mensagem enviada com sucesso!');">
+<input type="text" placeholder="Nome" required>
+<input type="email" placeholder="Email" required>
+<textarea rows="4" placeholder="Mensagem" required></textarea>
+<button type="submit">Enviar</button>
 </form>
 
 </section>
 
 <footer>
 <p>© 2026 Ritual Seoul – Asian Skincare & Beauty</p>
-<p>Email: apoio@ritualseoul.pt</p>
 </footer>
+
+<div class="voice-btn" onclick="narrarPagina()">🔊</div>
+
+<script>
+function narrarPagina(){
+const texto = "Bem-vindo à Ritual Seoul. Explore os nossos produtos de beleza asiática premium.";
+const fala = new SpeechSynthesisUtterance(texto);
+fala.lang="pt-PT";
+speechSynthesis.speak(fala);
+}
+</script>
 
 </body>
 </html>
