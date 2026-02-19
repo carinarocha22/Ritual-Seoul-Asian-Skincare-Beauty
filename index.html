@@ -20,6 +20,9 @@ padding:20px;
 position:sticky;
 top:0;
 z-index:1000;
+display:flex;
+align-items:center;
+justify-content:space-between;
 }
 
 nav a{
@@ -83,21 +86,21 @@ button:hover{
 background:#880e4f;
 }
 
-#carrinhoLateral{
-position:fixed;
-right:0;
-top:0;
-height:100%;
-width:300px;
-background:white;
-box-shadow:-4px 0 10px rgba(0,0,0,0.2);
-padding:20px;
-overflow:auto;
+#carrinhoIcon{
+position:relative;
+cursor:pointer;
+font-size:24px;
 }
 
-#carrinhoLateral h3{
-border-bottom:1px solid #ddd;
-padding-bottom:10px;
+#contadorCarrinho{
+position:absolute;
+top:-10px;
+right:-10px;
+background:red;
+color:white;
+border-radius:50%;
+padding:2px 7px;
+font-size:14px;
 }
 
 #acessibilidade{
@@ -124,6 +127,7 @@ text-align:center;
 <body>
 
 <header>
+<div>
 <h1 tabindex="0">Ritual Seoul - Beleza Asiática</h1>
 <nav>
 <a href="#inicio">Início</a>
@@ -132,6 +136,10 @@ text-align:center;
 <a href="#acessibilidade">Acessibilidade</a>
 <a href="#contacto">Contacto</a>
 </nav>
+</div>
+<div id="carrinhoIcon">
+🛒 <span id="contadorCarrinho">0</span>
+</div>
 </header>
 
 <section id="inicio" class="hero">
@@ -184,6 +192,25 @@ uniformizar e proteger todos os tipos de pele.
 <button onclick="adicionar('Creme Estético')">Adicionar</button>
 </div>
 
+<!-- Novos produtos -->
+<div class="card">
+<img src="https://images.pexels.com/photos/4735943/pexels-photo-4735943.jpeg" alt="Gel Revitalizante">
+<h3>Gel Revitalizante</h3>
+<p>Gel refrescante com extratos botânicos que tonifica e revitaliza a pele.</p>
+<strong>22,90€</strong><br>
+<button onclick="detalhes('Refresca e hidrata a pele cansada, ideal para uso diário.')">Ver Detalhes</button>
+<button onclick="adicionar('Gel Revitalizante')">Adicionar</button>
+</div>
+
+<div class="card">
+<img src="https://images.pexels.com/photos/15766704/pexels-photo-15766704.jpeg" alt="Creme Relaxante">
+<h3>Creme Relaxante</h3>
+<p>Creme nutritivo para corpo com aroma calmante e ação hidratante intensa.</p>
+<strong>18,90€</strong><br>
+<button onclick="detalhes('Proporciona uma sensação de bem-estar e suaviza a pele.')">Ver Detalhes</button>
+<button onclick="adicionar('Creme Relaxante')">Adicionar</button>
+</div>
+
 </div>
 </section>
 
@@ -217,56 +244,49 @@ e estrutura semântica adequada.
 <p>Telefone: +351 912 345 678</p>
 </section>
 
-<div id="carrinhoLateral">
-<h3>Carrinho</h3>
-<ul id="listaCarrinho"></ul>
-</div>
-
 <footer>
 © 2026 Ritual Seoul - Todos os direitos reservados
 </footer>
 
 <script>
 let carrinho=[];
-
 function adicionar(produto){
-carrinho.push(produto);
-atualizarCarrinho();
+    carrinho.push(produto);
+    atualizarContador();
 }
 
-function atualizarCarrinho(){
-let lista=document.getElementById("listaCarrinho");
-lista.innerHTML="";
-carrinho.forEach(item=>{
-let li=document.createElement("li");
-li.textContent=item;
-lista.appendChild(li);
-});
+function atualizarContador(){
+    document.getElementById("contadorCarrinho").textContent = carrinho.length;
 }
 
 function detalhes(texto){
-alert(texto);
+    alert(texto);
 }
 
 function ativarVoz(){
-document.querySelectorAll("h1,h2,h3,p,a,button").forEach(el=>{
-el.addEventListener("mouseover",()=>{
-let msg=new SpeechSynthesisUtterance(el.innerText);
-msg.lang="pt-PT";
-speechSynthesis.speak(msg);
-});
-});
-alert("Leitura ativada.");
+    document.querySelectorAll("h1,h2,h3,p,a,button").forEach(el=>{
+        el.addEventListener("mouseover",()=>{
+            let msg=new SpeechSynthesisUtterance(el.innerText);
+            msg.lang="pt-PT";
+            speechSynthesis.speak(msg);
+        });
+    });
+    alert("Leitura ativada.");
 }
 
 function aumentarTexto(){
-document.body.style.fontSize="18px";
+    document.body.style.fontSize="18px";
 }
 
 function contraste(){
-document.body.style.background="black";
-document.body.style.color="white";
+    document.body.style.background="black";
+    document.body.style.color="white";
 }
+</script>
+
+</body>
+</html>
+
 </script>
 
 </body>
